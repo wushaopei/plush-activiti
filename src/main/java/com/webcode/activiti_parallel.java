@@ -96,7 +96,7 @@ public class activiti_parallel {
     @Test
     public void findTask(){
         
-        String assignee = "刘松";  
+        String assignee = "吴刚";  
         
         // 查询并且返回任务即可
         List<Task> taskList = taskService.createTaskQuery()  // 任务相关Service // 创建任务查询
@@ -121,7 +121,7 @@ public class activiti_parallel {
      */
     @Test
     public void queryProInstanceStateByProInstanceId(){
-        ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().processInstanceId("202501").singleResult();
+        ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().processInstanceId("282501").singleResult();
         if(processInstance == null){
             System.out.println("当前流程已经完成");
         }else{
@@ -132,11 +132,11 @@ public class activiti_parallel {
     
     
     //完成任务
-    @Test
-    	public void testTaskComplete() {
+        @Test
+     	public void testTaskComplete() {
     		
      		//任务委托人
-    		String assignee = "刘松"; //分别执行部门和经理
+    		String assignee = "吕尚"; //分别执行部门和经理
     		
     		//查询当前委托人需要完成的任务
     		List<Task> taskList = taskService.createTaskQuery()
@@ -145,7 +145,7 @@ public class activiti_parallel {
     				   .list();
     		
     		for (Task task : taskList) {
-    			System.err.println("审批人："+task);
+    			System.err.println("-----审批人："+task.toString()+"-----");
     			
     			//完成当前任务
     			//获取任务id
@@ -160,7 +160,7 @@ public class activiti_parallel {
 	@Test
 	public void completeTask(){
 
-		processEngine.getTaskService().complete("202501");
+		processEngine.getTaskService().complete("280004");
 	}
 	
 	
